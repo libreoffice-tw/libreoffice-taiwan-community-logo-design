@@ -1,0 +1,43 @@
+# Travis CI Configuration
+# https://docs.travis-ci.com
+# This file is based on
+# TravisCI · koalaman/shellcheck Wiki
+# https://github.com/koalaman/shellcheck/wiki/TravisCI
+## Use container-based infrastructure for quicker build start-up
+sudo: false
+
+addons:
+  apt:
+    sources:
+    - debian-sid    # Grab shellcheck from the Debian repo (o_O)
+    packages:
+    - shellcheck
+    - realpath      # Merged to GNU Coreutils in Ubuntu 16.04
+
+## We only support Ubuntu 14.04 and newer
+dist: trusty
+
+language: markdown
+
+## EXPERIMENTAL
+## Customizing the Build - Travis CI
+## https://docs.travis-ci.com/user/customizing-the-build/#Git-Clone-Depth
+## > Please note that if you use a depth of 1 and have a queue of jobs, Travis CI won’t build commits that are in the queue when you push a new commit.
+git:
+  depth: 30
+
+script:
+#- git ls-files -z \*.bash | xargs --max-args=1 --verbose --null -- shellcheck
+# The following command will be dropped in favor with the above one after Travis CI environment contains ShellCheck >=0.4.5, which fixes the bug that triggers SC2148 even when `shell` directive is used
+- git ls-files -z \*.bash | xargs --max-args=1 --verbose --null -- shellcheck --shell=bash
+- ./build.bash
+
+deploy:
+  provider: releases
+  api_key:
+    secure: NZTpQIExsPxbiYLi/vONVp4BxZsVCmRYP2yRlAihTEilRHQHW8pR+IyGKP8iqGk5m0Nt6b+w0Ma+sWUPr+tQn0xNoRtrmj7hl2I7l5/kn3ojFzmyZ+yFyWzFjj3f21AJfLAlhTOcf9DtUUiHjKP6K60MNYBZ8wgU6n/s5Hyn/SKcgVXHxABkvGw3QDY9BY7+vVr+wNs8uzJ3hgYSfVBc7JTHneha1yDZhvits8bPBvLDpBOnCK2DDFQLNxtQ78wPjnwEysh8jKhrD+3DBeYnd7teHMDa0RN+rxVrotPnQlyv6A8ENcMy1fKf+vH9Yomw3iNm+BxTQAYcMTZOjY4fA0+V37DNi4J9J1/sgAlTSSA9qc2cHIqbg6V/D9JUMQ2UMq0NuV0yHVQsTuuyA58lf6/ZjWIDY7L9K2xFFIyFP12XeqgYc1RaF7jQ4bgFV4607/cr7TSFq072+W7Qz+rmAikotExyd+oSM/DgsmihopQskEtNtJFsdzci7pylGTFTACytOx9DqDQFFR3huDAOYq10JBP/oSEqxbSWfUVFlbYu1U0RObo/Y+aUJZYUcJXGX5h/jO0qjQtwwaD6uUyqYCKE7wqr6fH3aMrj7tOhbhMHkx8GqCEzdg5oxJYFi0rg5us/kRZIcQUKznlFFK4Rdf0K/i2qjNh7vDP+ajSJ/AQ=
+  file_glob: true
+  skip_cleanup: true
+  file: Software Releases/*.tar.bz2
+  on:
+    tags: true
