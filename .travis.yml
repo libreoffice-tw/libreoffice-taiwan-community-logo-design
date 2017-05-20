@@ -13,6 +13,7 @@ addons:
     packages:
     - shellcheck
     - realpath      # Merged to GNU Coreutils in Ubuntu 16.04
+    - inkscape
 
 ## We only support Ubuntu 14.04 and newer
 dist: trusty

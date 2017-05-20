@@ -10,6 +10,7 @@ init(){
 
 	package_version="$(git describe --tags --dirty --always)"
 
+	export_svgs_to_pngs
 	tar\
 		--create\
 		--bzip\
@@ -32,7 +33,8 @@ check_runtime_dependencies(){
 		dirname\
 		realpath\
 		git\
-		tar
+		tar\
+		inkscape
 	do
 		if ! command -v "${executable_name}" &>/dev/null; then
 			printf\
@@ -48,6 +50,18 @@ check_runtime_dependencies(){
 		fi
 	done
 }; declare -fr check_runtime_dependencies; check_runtime_dependencies
+
+export_svgs_to_pngs(){
+	for svg_file in "${RUNTIME_EXECUTABLE_DIRECTORY}"/*.svg; do
+		inkscape\
+			--without-gui\
+			--export-width=350\
+			--export-width=350\
+			--export-background-opacity=0.0\
+			--export-png="${svg_file}.350px.png"\
+			"${svg_file}"
+	done
+}; declare -fr export_svgs_to_pngs
 
 ## Makes debuggers' life easier - Unofficial Bash Strict Mode
 ## http://redsymbol.net/articles/unofficial-bash-strict-mode/
