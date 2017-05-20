@@ -1,0 +1,7 @@
+# Project-specific Git Configuration
+# Documentation: manpage: git-config
+[filter "svg"]
+	clean = "\"Clean and Smudge Filters/Clean Filter for SVG/Clean Filter for SVG.bash\""
+
+[filter "bash"]
+	clean = "\"Clean and Smudge Filters/Clean Filter for GNU Bash Scripts/Clean Filter for GNU Bash Script.bash\""

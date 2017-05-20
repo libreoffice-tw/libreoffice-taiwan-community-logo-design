@@ -1,0 +1,9 @@
+[submodule "Git Hooks/Git Pre-commit Hook for GNU Bash Projects"]
+	path = Git Hooks/Git Pre-commit Hook for GNU Bash Projects
+	url = https://github.com/Lin-Buo-Ren/Git_Pre-commit_Hook_for_GNU_Bash_Projects.git
+[submodule "Clean and Smudge Filters/Clean Filter for GNU Bash Scripts"]
+	path = Clean and Smudge Filters/Clean Filter for GNU Bash Scripts
+	url = https://github.com/Lin-Buo-Ren/Clean-Filter-for-GNU-Bash-Scripts
+[submodule "Clean and Smudge Filters/Clean Filter for SVG"]
+	path = Clean and Smudge Filters/Clean Filter for SVG
+	url = https://github.com/Lin-Buo-Ren/Clean-Filter-for-SVG.git
