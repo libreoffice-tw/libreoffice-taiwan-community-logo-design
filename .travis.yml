@@ -4,16 +4,18 @@
 # TravisCI · koalaman/shellcheck Wiki
 # https://github.com/koalaman/shellcheck/wiki/TravisCI
 ## Use container-based infrastructure for quicker build start-up
-sudo: false
+## FIXME: Due to https://github.com/travis-ci/travis-ci/issues/4838 we have to stuck on VM build :(
+sudo: true
 
-addons:
-  apt:
-    sources:
-    - debian-sid    # Grab shellcheck from the Debian repo (o_O)
-    packages:
-    - shellcheck
-    - realpath      # Merged to GNU Coreutils in Ubuntu 16.04
-    - inkscape
+## FIXME: Due to https://github.com/travis-ci/travis-ci/issues/4838 we have to stuck on VM build :(
+#addons:
+  #apt:
+    #sources:
+    #- debian-sid    # Grab shellcheck from the Debian repo (o_O)
+    #packages:
+    #- shellcheck
+    #- realpath      # Merged to GNU Coreutils in Ubuntu 16.04
+    #- inkscape
 
 ## We only support Ubuntu 14.04 and newer
 dist: trusty
@@ -26,6 +28,14 @@ language: markdown
 ## > Please note that if you use a depth of 1 and have a queue of jobs, Travis CI won’t build commits that are in the queue when you push a new commit.
 git:
   depth: 30
+
+install:
+- sudo apt-get update -qq
+- sudo apt-get install cabal-install
+- sudo cabal update
+- sudo cabal install --global ShellCheck
+- sudo apt-get install realpath || true # should be in coreutils since 16.04(?)
+- sudo apt-get install inkscape
 
 script:
 #- git ls-files -z \*.bash | xargs --max-args=1 --verbose --null -- shellcheck
