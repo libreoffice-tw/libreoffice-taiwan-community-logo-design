@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="100mm" height="100mm" viewBox="0 0 100 100" version="1.1" id="svg3807" enable-background="new" sodipodi:docname="libreoffice-tw-logo.svg" inkscape:export-xdpi="90" inkscape:export-ydpi="90">
+	<title id="title4240">LibreOffice 臺灣社群標誌設計</title>
 	<defs id="defs3801">
 		<inkscape:path-effect effect="doeffectstacktest" point_param="0,0" id="path-effect5249" is_visible="true" step="1.5" path_param="M 0,100 100,0"/>
 		<linearGradient inkscape:collect="always" id="linearGradient5243">
@@ -92,8 +93,13 @@
 			<cc:Work rdf:about="">
 				<dc:format>image/svg+xml</dc:format>
 				<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-				<dc:title/>
 				<cc:license rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/"/>
+				<dc:title>LibreOffice 臺灣社群標誌設計</dc:title>
+				<dc:rights>
+					<cc:Agent>
+						<dc:title>some rights reserved(Creative Commons BY-SA 4.0+)</dc:title>
+					</cc:Agent>
+				</dc:rights>
 			</cc:Work>
 			<cc:License rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
 				<cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
