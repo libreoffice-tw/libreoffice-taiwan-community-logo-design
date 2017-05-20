@@ -2,3 +2,5 @@
 # https://git-scm.com/docs/gitignore
 ## Build Products
 *.png
+Software Releases/*
+!Software Releases/README.markdown
